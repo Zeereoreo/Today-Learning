@@ -45,3 +45,5 @@ let position :NewType = { x:10, y:20 }
 // 주의사항 type 변수 재정의 불가능
 
 type NewType = string // const와 마찬가지
+
+//숙제 1
