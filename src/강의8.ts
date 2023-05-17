@@ -33,7 +33,7 @@ const 변수 = {object : 변경가능}
 // 솔루션 1 : object 만들 때 타입지정 확실히
 // 솔루션 2 : as문법으로 해결
 // 솔루션 3 : as const 이상한 키워드 쓰기
-var 자료 : {name : 'kim'}  = {
+var 자료  = { //솔루션 1 자료 : {name : 'kim'}으로 타입지정
     name : 'kim'
 } // 솔루션 3 : 1. as const -> object value 값을 그대로 타입으로 지정 / 2. object 속성들에 모두 readonly 붙여줌
 
