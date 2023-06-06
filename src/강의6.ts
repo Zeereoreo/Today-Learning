@@ -13,7 +13,7 @@ function 클리닝함수(a : (number|string)[]){
     })
 }
 
-console.log(클리닝함수([123,'3']))
+console.log(클리닝함수([123,'3'])) // 1233
 
 // 숙제 2
 
@@ -42,8 +42,11 @@ let 민수쌤 = { subject : ['science', 'art', 'korean'] }
 
 function sub(x:{ subject : string[]}){
     if(typeof x.subject === 'string'){
+        return x.subject
+    }else if(Array.isArray(x.subject)){
         return x.subject.slice(-1)
-    }else{
-        return 
+    }else {
+        return 'X'
     }
 }
+console.log(sub ({subject:['english','art']})) // art
