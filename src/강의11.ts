@@ -32,3 +32,27 @@ let 사람2 = new Person2('lee', 30);
 // 들켰군요 똑같은 기능을 합니다.
 
 // 근데 new Person() 사용할 때 파라미터로 뭔가 집어넣고 싶으면 constructor로 만들어야합니다. 
+
+
+// (숙제1) Car 클래스를 만들고 싶습니다.
+
+// 1. 대충 { model : '소나타', price : 3000 } 이렇게 생긴 object를 복사해주는 class를 만들어보십시오.
+
+// 2. 그리고 복사된 object 자료들은 .tax() 라는 함수를 사용가능한데 현재 object에 저장된 price의 10분의1을 출력해주어야합니다. 
+
+// 3. model과 price 속성의 타입지정도 알아서 잘 해보십시오. tax() 함수의 return 타입도요. 
+
+class Car {
+    model : string;
+    price : number;
+    constructor (a:string,b:number){
+        this.model = a;
+        this.price = b;
+        
+    }
+    tax(b:number){
+        return this.price/10
+    }
+}
+
+let 아반떼 = new Car ('아반떼', 3000)
