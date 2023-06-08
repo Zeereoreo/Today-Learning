@@ -39,3 +39,31 @@ interface Basket {
 
 
 let 장바구니 :Basket[] = [ { product : '청소기', price : 7000 }, { product : '삼다수', price : 800 } ] 
+
+//(숙제3) 위에서 만든 타입을 extends 해봅시다.
+
+interface New extends Basket {
+    card : boolean
+}
+
+//(숙제4) object 안에 함수를 2개 넣고 싶은데요 
+
+// 1. 이 object 자료는 plus() 함수를 내부에 가지고 있으며 plus 함수는 파라미터 2개를 입력하면 더해서 return 해줍니다. 
+
+// 2. 이 object 자료는 minus() 함수를 내부에 가지고 있으며 minus 함수는 파라미터 2개를 입력하면 빼서 return 해줍니다. 
+
+// 이 object 자료를 어떻게 만들면 될까요? 
+
+interface MathObj {
+    plus : (a:number, b:number) => number,
+    minus : (a:number, b:number) => number
+  }
+  
+  let 오브젝트 :MathObj = {
+    plus(a,b){
+      return a + b
+    },
+    minus(a,b){
+      return a - b
+    }
+  } 
