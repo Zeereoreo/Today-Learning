@@ -4,7 +4,7 @@
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
-    "strictNullChecks": true,
+    "strictNullChecks": true, // 많은 환경에서 null이 들어올 경우 체크해주는 옵션
     "outDir": "./dist"
   }
 }
