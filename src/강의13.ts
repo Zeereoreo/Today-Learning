@@ -89,3 +89,21 @@ function 최댓값(...x : number[]) {
     return result;
   }
   console.log(최댓값(4,6,3,2)) 
+
+  //(숙제2) 이렇게 생긴 object 자료를 파라미터로 입력할 수 있는 함수를 만들어봅시다. 
+  함수( { user : 'kim', comment : [3,5,4], admin : false } )
+
+  type UserType = {
+    user : string,
+    comment : number[],
+    admin : boolean
+  }
+  
+  function 함수({user, comment, admin} :UserType) :void{
+    console.log(user, comment, admin)
+  }
+  
+  함수({ user : 'kim', comment : [3,5,4], admin : false }) 
+
+  //(숙제3) 이렇게 생긴 array 자료를 파라미터로 입력할 수 있는 함수를 만들어봅시다. 
+  
