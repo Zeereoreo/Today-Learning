@@ -101,3 +101,63 @@ class User {
 // 실은 class 내부의 기본 변수같은걸 저렇게 수정할 일은 별로 없습니다. 
 
 // 수정하고 싶으면 private 쓰고 그 다음에 수정함수를 만들어서 사용하는게 더 안전한 방법입니다. 
+
+// (숙제1) 다음 x, y, z 속성의 특징을 설명해보십시오.
+
+class User {
+    private static x = 10;
+    public static y = 20;
+    protected z = 30;
+  }
+
+  private static 은 class {}에서만 수정가능?
+  public static 은 class 밖에서도 수정 가능
+  protected 는 class {} 안에서 수정하고 싶을 때 사용
+
+  //(숙제2) x 속성에 숫자를 더해주는 함수가 필요합니다.
+
+  class User1 {
+    private static x = 10;
+    public static y = 20;
+
+    function addOne(p) {
+        x+p
+    }
+
+    function printX(){
+        console.log(x)
+    }
+  }
+  User1.addOne(3) //이렇게 하면 x가 3 더해져야함
+  User1.addOne(4) //이렇게 하면 x가 4 더해져야함
+  User1.printX()  //이렇게 하면 콘솔창에 x값이 출력되어야함
+
+//   저렇게 User.addOne() 쓸 때마다 x가 증가하는 함수는 어떻게 만들 수 있을까요? 
+
+// 그리고 x값을 콘솔창에 출력해주는 printX() 함수도 한번 만들어보십시오.
+
+// (조건) private static x = 10; 이 코드 수정금지 
+
+
+// (숙제3) 이런거 어떻게 만들게요 
+
+class Square {
+    function draw(가로,세로,색깔) {
+        return (
+            <div style=>
+            </div>
+        )
+    }
+}
+
+let 네모 = new Square(30, 30, 'red');
+네모.draw()
+네모.draw()
+네모.draw()
+네모.draw()
+
+// 이렇게 네모.draw()를 할 때마다
+
+// index.html에 가로 30px, 세로 30px, 배경색이 'red' 의 <div> 박스가
+
+// 가로 400px 세로 400px 공간 안에 무작위로 배치되어야합니다.
