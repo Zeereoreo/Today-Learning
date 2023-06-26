@@ -114,6 +114,26 @@ class User {
   public static 은 class 밖에서도 수정 가능
   protected 는 class {} 안에서 수정하고 싶을 때 사용
 
+  1. 필드값은 원래는 모든 User의 자식들에게 물려주는 속성이지만 
+
+x와 y에는 static 키워드가 붙었기 때문에 User.x 이런 식으로만 접근해서 쓸 수 있습니다.
+
+User의 자식들은 x와 y를 쓸 수 없습니다.
+
+ 
+
+2. private static x는 class 내부에서만 수정가능합니다. 
+
+ 
+
+3. public static y는 class 내부 외부 상관없이 수정가능합니다. public 키워드 지워도 똑같이 동작할 듯 
+
+ 
+
+4. protected z는 private 키워드와 유사하게 class 내부에서만 사용이 가능한데 
+
+약간 범위가 넓어서 extends로 복사한 class 내부에서도 사용할 수 있습니다. 
+
   //(숙제2) x 속성에 숫자를 더해주는 함수가 필요합니다.
 
   class User1 {
@@ -138,6 +158,31 @@ class User {
 
 // (조건) private static x = 10; 이 코드 수정금지 
 
+class User { 
+    private static x = 10; 
+    public static y = 20;
+  
+    static addOne(파라미터 :number){
+      User.x += 파라미터
+    }
+  
+    static printX(){
+        console.log(User.x)
+    }
+  }
+  User.addOne(3)
+  User.addOne(10)
+  User.printX()
+
+  그래서 1. addOne() 함수를 만들었습니다. 그리고 static을 붙여줬음 
+
+  그러면 이제 User.addOne() 이렇게 쓸 수 있으니까요.
+  
+  2. addOne(파라미터) 실행하면 x속성에 파라미터만큼 더해달라고 했습니다.
+  
+  3. 그리고 printX() 실행하면 콘솔창에 User.x 출력해달라고 했습니다. 
+  
+  의도대로 잘 동작하는 군요. 
 
 // (숙제3) 이런거 어떻게 만들게요 
 
@@ -161,3 +206,37 @@ let 네모 = new Square(30, 30, 'red');
 // index.html에 가로 30px, 세로 30px, 배경색이 'red' 의 <div> 박스가
 
 // 가로 400px 세로 400px 공간 안에 무작위로 배치되어야합니다.
+
+class Square {  
+    constructor (public width :number, public height :number, public color :string){
+    }
+    draw(){
+      let a = Math.random();
+      let square = `<div style="position:relative; 
+        top:${a * 400}px; 
+        left:${a * 400}px; 
+        width:${this.width}px; 
+        height : ${this.height}px; 
+        background:${this.color}"></div>`;
+      document.body.insertAdjacentHTML( 'beforeend', square );
+    }
+  }
+
+  1. constructor를 이용해서 새로뽑는 object 들은 width, height, color를 입력할 수 있게 만들었습니다.
+
+2. 자식들은 draw()를 쓰면 
+
+(1) 0과 1사이의 무작위 숫자를 뽑습니다. 그걸 변수 a에 저장해둡니다.
+
+(2) <div>를 디자인합니다. 근데 <div>박스의 폭, 높이, 색상은 constructor로 입력한 것들을 활용합니다.
+
+(3) <div> 박스의 위치는 left, right 속성을 이용해서 0~400px 사이로 무작위로 배치합니다.
+
+(4) insertAdjacentHTML 이런거 이용하면 원하는 곳에 html 추가가 가능합니다.
+
+ 
+
+그래서 실제로 자식을 하나 뽑아서 draw() 했더니 진짜 빨간 박스 4개 나옵니다. 
+
+다른 사이즈, 다른 색상으로도 뽑아서 draw() 이것도 가능하겠군요 
+  
