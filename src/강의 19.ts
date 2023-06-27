@@ -116,3 +116,84 @@ interface lengthCheck {
 
 3. 그래서 MyType은 length가 분명히 있기 때문에 맘대로 MyType을 부여받은 x는 .length 조작이 가능합니다. 
 
+(숙제1) 문자를 집어넣으면 문자의 갯수, array를 집어넣으면 array안의 자료 갯수를 콘솔창에 출력해주는 함수는 어떻게 만들까요? 
+연습삼아 Generic 이런걸로 만들어봅시다. 굳이 Generic 이런게 필요는 없겠지만요 
+
+function 함수1(x) {
+    return x.length
+}
+
+function 함수<MyType extends string | string[]>(x: MyType)  { 
+    console.log(x.length)   
+} 
+
+함수<string>('hello');
+함수<string[]>(['kim','park'])
+
+1. <> 안에 타입을 집어넣을 수 있는 함수를 만들었습니다. 그리고 기능은 심플한데 x.length를 출력해줍니다.
+
+2. 근데 에러가 납니다. x에 뭐가 들어올지 모르니까 미리 에러를 내주고 있습니다. 
+
+3. 그래서 <>에 집어넣은 타입은 extends 를 이용해서 string 또는 string[] 얘네들의 특성을 가지고 있는지 확인하라고 했습니다.
+
+그랬더니 x.length 잘 됩니다. 
+
+
+(숙제2) Animal 이라는 타입이 있습니다.
+
+interface Animal {
+    name : string;
+    age : number 
+  }
+  
+  let data = '{"name" : "dog", "age" : 1 }'
+
+  data라는 JSON 자료를 object { } 자료로 변환을 해서 return 해주는 함수를 만들어보십시오.
+
+근데 변환된 object의 타입은 Animal이 되었으면 좋겠는데 어떻게 코드를 짜면 될까요?
+
+오늘 배운 Generic을 이용해서 구현해보도록 합시다.  
+
+ 
+
+(동작 예시)
+
+함수<Animal>(data) 이렇게 쓰면 이 자리에 { name : 'dog' , age : 1 } 이런 object 자료가 남아야합니다. 근데 타입은 Animal임
+
+function 함수<Animal>(data)=>{
+    console.log(JSON.parse(data))
+}
+
+interface Animal {
+    name : string;
+    age : number 
+  }
+  
+  let data = '{"name" : "dog", "age" : 1 }';
+  
+  
+  function 함수<Type>(x :string) :Type {
+    return JSON.parse(x);
+  }
+  let result = 함수<Animal>(data)
+  console.log(result)
+
+  (숙제3) class 를 수정해봅시다.
+
+  class Person {
+    name;
+    constructor(a){
+      this.name = a;
+    }
+  }
+  let a = new Person('어쩌구');
+  a.name //any 타입이 되었넹 
+
+  class Person <T> {
+    name;
+    constructor(a :T){
+      this.name = a;
+    }
+  }
+  let a = new Person<string>('어쩌구');
+  a.name //string 타입이 되었넹 
