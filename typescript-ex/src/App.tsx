@@ -1,8 +1,9 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './App.css';
 
 
 function App() {
+  let [user,setUser] = useState('kim')
   return (
     <div>
       <h4>안녕하세요</h4>
