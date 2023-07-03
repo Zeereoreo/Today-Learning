@@ -118,6 +118,42 @@ class Dict {
         this.words[word.term] = word.def;
         }
     }
+    get(term:string){
+        return this.words[term]
+    }
+    delete(term : string){
+        if(this.words[term]) delete this.words[this.words.term]
+    }
+    update(word: Word) {
+            if (this.words[word.term] !== undefined) {
+            this.words[word.term] = word.def;
+            }
+    }
+    showAll(){
+        return Object.keys(this.words).forEach(term => console.log(term))
+    }
+    count(){
+        return Object.keys(this.words).length
+    }
+    upsert(word: Word){
+        this.words[word.term] = word.def
+    }
+    exists(term:string){
+        if(this.words[term]) return true
+        return false
+    }
+    bulkAdd(bluk: Word[]){
+        bluk.forEach((word:Word)=>{
+            if(this.words[word.term] === undefined) 
+            this.words[word.term] = word.def
+        })
+    }
+    bulkDelete(bulk: string[]) {
+        bulk.forEach((word: string) => {
+            if(this.words[word]) 
+            delete this.words[word]
+        })
+    }
 }
 
 class Word {
