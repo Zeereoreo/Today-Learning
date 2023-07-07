@@ -6,3 +6,11 @@ class Block {
         return 'hi'
     }
 }
+
+import {init,exit} from "myPackage";
+
+init ({
+    urls:"true"
+})
+
+localStorage
