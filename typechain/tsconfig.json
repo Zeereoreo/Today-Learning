@@ -4,6 +4,8 @@
     ],
     "compilerOptions": {
         "outDir": "build",
-        "target": "ES6"
+        "target": "ES6",
+        "lib":["ES6","DOM"]
+        // 타입스크립트에게 어떤 API를 사용하고 어떤 환경에서 코드를 실행하는지 자동완성기능을 하게 도와줌
     }
 }
